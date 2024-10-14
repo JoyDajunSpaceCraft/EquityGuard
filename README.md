@@ -3,7 +3,7 @@
 ## Overview
 
 **EquityGuard** is a contrastive learning-based framework designed to detect and mitigate biases in Large Language Models (LLMs) used in healthcare applications. The framework addresses inequities observed in tasks such as clinical trial matching (CTM) and medical question answering (MQA), which are crucial for clinical decision support and translational research. By systematically disentangling sensitive attributes such as race, sex, and social determinants of health (SDOH), EquityGuard promotes fairer and more equitable healthcare outcomes.
-dd
+
 ## Key Features
 
 - **Bias Detection Mechanism**: Identifies and corrects unfair predictions in LLM-based systems.
