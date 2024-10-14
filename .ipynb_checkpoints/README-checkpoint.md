@@ -11,6 +11,16 @@
 - **Task-Specific Implementation**: Applied to clinical trial matching and medical question-answering tasks while maintaining high performance and fairness.
 - **Extensive Evaluation**: Assessed on SIGIR, TREC 2021, TREC 2022, MedQA, and MedMCQA using models like GPT-4, Gemini, and Claude.
 
+## Installation
+
+To use EquityGuard, clone the repository and install the required dependencies:
+
+```bash
+git clone https://github.com/JoyDajunSpaceCraft/EquityGuard.git
+cd EquityGuard
+pip install -r requirements.txt
+```
+
 ## Tasks
 
 ### Clinical Trial Matching
@@ -44,23 +54,7 @@ python preprocess/change_question_mqa.py --llm_type gpt4
 
 The llm_type is the different llms' name. We have option `gpt4`, `claude` and `gemini`.
 
-## Results
 
-EquityGuard was shown to improve fairness across sensitive attributes by minimizing the influence of race, gender, and SDOH in both trial matching and medical question answering tasks. Key improvements include:
-
-- **NDCG@10**: Improved fairness in trial matching, with consistent performance across different racial and socioeconomic groups.
-- **Error Rate**: Reduced error rates in medical Q&A, particularly in categories such as race and socioeconomic status.
-- **Fairness Metrics**: Significant reductions in Equal Opportunity (EO) and Demographic Parity (DP) disparities, ensuring that predictions are not disproportionately influenced by sensitive attributes.
-
-## Installation
-
-To use EquityGuard, clone the repository and install the required dependencies:
-
-```bash
-git clone https://github.com/JoyDajunSpaceCraft/EquityGuard.git
-cd EquityGuard
-pip install -r requirements.txt
-```
 ## Usage
 
 The framework can be applied to both clinical trial matching and medical question answering tasks. Sample scripts are provided for each task in the `scripts/` directory:
@@ -79,3 +73,14 @@ Example usage for MedQA:
 python scripts/run_medqa.py --dataset medqa --model GPT-4
 ```
 Make sure to configure the dataset paths and model checkpoints in the configuration file before running the scripts.
+
+
+
+## Results
+
+EquityGuard was shown to improve fairness across sensitive attributes by minimizing the influence of race, gender, and SDOH in both trial matching and medical question answering tasks. Key improvements include:
+
+- **NDCG@10**: Improved fairness in trial matching, with consistent performance across different racial and socioeconomic groups.
+- **Error Rate**: Reduced error rates in medical Q&A, particularly in categories such as race and socioeconomic status.
+- **Fairness Metrics**: Significant reductions in Equal Opportunity (EO) and Demographic Parity (DP) disparities, ensuring that predictions are not disproportionately influenced by sensitive attributes.
+
