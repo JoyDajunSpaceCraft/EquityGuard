@@ -30,6 +30,20 @@ The framework was tested on the following datasets:
 - **MedQA**: A large-scale dataset containing medical questions from the Chinese medical licensing exam.
 - **MedMCQA**: A multi-choice question-answering dataset based on medical topics from AIIMS and NEET PG exams.
 
+For the different tasks we use the different process methods.
+1. CTM task
+```
+python preprocess/change_question_cmt.py --llm_type gpt4 
+```
+
+2. MQA task
+
+```
+python preprocess/change_question_mqa.py --llm_type gpt4
+```
+
+The llm_type is the different llms' name. We have option `gpt4`, `claude` and `gemini`.
+
 ## Results
 
 EquityGuard was shown to improve fairness across sensitive attributes by minimizing the influence of race, gender, and SDOH in both trial matching and medical question answering tasks. Key improvements include:
