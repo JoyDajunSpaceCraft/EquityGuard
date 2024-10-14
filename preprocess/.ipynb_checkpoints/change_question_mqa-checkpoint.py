@@ -102,9 +102,7 @@ def ask_gemini(question, options):
     import google.generativeai as genai
     api_key ='Your Gemini API key'
     genai.configure(api_key=api_key)
-    # with open("Openaikey.txt", "r") as f:
-    #     key = f.readlines()[0]
-    # apikey = "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"
+    
     prompt = []
     prompt.append(f"Question: {question}\nOptions:\n")
     for key, value in options.items():
