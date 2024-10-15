@@ -62,7 +62,7 @@ The llm_type is the different llms' name. We have option `gpt4`, `claude` and `g
 
 The framework can be applied to both clinical trial matching and medical question answering tasks. Sample scripts are provided for each task in the `scripts/` directory:
 ```
-python train.py --model_name llama3_8B --task qa --epochs 5 --batch_size 16 --lr 1e-5
+python scripts/train.py --model_name llama3_8B --task qa --epochs 5 --batch_size 16 --lr 1e-5
 
 ```
 
@@ -72,7 +72,7 @@ The model name should be `llama3_8B` or `Mistralv0.3`
 ### Inference
 
 ```
-python inference.py --model_name facebook/llama --data_path ./data/test_data.pth --batch_size 16 --device cuda --sensitive_attr_key sensitive_attr
+python scripts/inference.py --model_name llama3_8B --data_path ./data/test_data.pth --batch_size 16 --device cuda --sensitive_attr_key sensitive_attr
 ```
 
 
