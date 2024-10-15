@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import LlamaForCausalLM, LlamaConfig
 
-class UnifiedLlamaModel(LlamaForCausalLM):
+class UnifiedModel(LlamaForCausalLM):
     def __init__(self, config: LlamaConfig, num_labels=2, contrastive_embedding_size=128):
         super(UnifiedLlamaModel, self).__init__(config)
         # Define layers for ranking and classification tasks

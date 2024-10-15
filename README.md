@@ -57,30 +57,28 @@ The llm_type is the different llms' name. We have option `gpt4`, `claude` and `g
 
 ## Usage
 
+
+### Train
+
 The framework can be applied to both clinical trial matching and medical question answering tasks. Sample scripts are provided for each task in the `scripts/` directory:
-
-- `run_clinical_trial_matching.py`: Run the clinical trial matching task with EquityGuard.
-- `run_medqa.py`: Run the MedQA task with bias mitigation using EquityGuard.
-
-Example usage for clinical trial matching:
-
-```bash
-python scripts/run_clinical_trial_matching.py --dataset sigir --model GPT-4
 ```
-Example usage for MedQA:
+python train.py --model_name llama3_8B --task qa --epochs 5 --batch_size 16 --lr 1e-5
 
-```bash
-python scripts/run_medqa.py --dataset medqa --model GPT-4
 ```
-Make sure to configure the dataset paths and model checkpoints in the configuration file before running the scripts.
+
+The model name should be `llama3_8B` or `Mistralv0.3`
 
 
+### Inference
 
-## Results
+```
+python inference.py --model_name facebook/llama --data_path ./data/test_data.pth --batch_size 16 --device cuda --sensitive_attr_key sensitive_attr
+```
 
-EquityGuard was shown to improve fairness across sensitive attributes by minimizing the influence of race, gender, and SDOH in both trial matching and medical question answering tasks. Key improvements include:
 
-- **NDCG@10**: Improved fairness in trial matching, with consistent performance across different racial and socioeconomic groups.
-- **Error Rate**: Reduced error rates in medical Q&A, particularly in categories such as race and socioeconomic status.
-- **Fairness Metrics**: Significant reductions in Equal Opportunity (EO) and Demographic Parity (DP) disparities, ensuring that predictions are not disproportionately influenced by sensitive attributes.
+- **Equal Opportunity (EO) Calculation**: It computes the True Positive Rate (TPR) for both the sensitive group and non-sensitive group and calculates the absolute difference.
+- **Demographic Parity (DP) Calculation**: It calculates the Positive Rate for both groups (sensitive and non-sensitive) and returns the absolute difference between the two.
+- **Error Rate Calculation**: The error rate is simply calculated as 1 minus the accuracy score.
+- **Inference Function**: The model processes batches of input data, and for each batch, predictions are made. Sensitive attributes are used to calculate fairness metrics (EO and DP).
+
 

@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from sklearn.metrics import roc_auc_score, accuracy_score
 from transformers import AutoTokenizer
-from model_structure import UnifiedModel
+from custom_model import UnifiedLlamaModel
 from torch.utils.data import DataLoader
 from ndcg_calculation import ndcg_score  # Ensure you have the NDCG calculation function
 
@@ -71,7 +71,7 @@ def main():
 
     # Load the model
     device = torch.device(args.device)
-    model = UnifiedModel.from_pretrained(args.model_name).to(device)
+    model = UnifiedLlamaModel.from_pretrained(args.model_name).to(device)
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
 
     # Load the dataset (make sure your dataloader returns batches with sensitive_attr)
